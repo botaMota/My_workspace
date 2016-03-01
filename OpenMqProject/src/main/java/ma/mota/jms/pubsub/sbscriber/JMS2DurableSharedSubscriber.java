@@ -14,7 +14,7 @@ public class  JMS2DurableSharedSubscriber implements MessageListener{
         JMSContext ctx = cf.createContext();
         Topic topic = ctx.createTopic("EM_JMS2_TRADE.T");
 
-        JMSConsumer jmsConsumer = ctx.createConsumer(topic);
+        JMSConsumer jmsConsumer = ctx.createSharedDurableConsumer(topic , "sub:147");
         jmsConsumer.setMessageListener(this);
 
         System.out.println("Waiting for messages ...");
