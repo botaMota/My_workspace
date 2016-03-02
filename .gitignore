@@ -5,7 +5,7 @@ logs/
 # Eclipse
 .metadata
 .settings/
-.classpath
+#.classpath
 .project
 *.launch
 
