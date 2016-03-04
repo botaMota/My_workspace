@@ -23,5 +23,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/JmsProject/lib/activemq-all-5.13.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

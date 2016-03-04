@@ -36,6 +36,20 @@
 	   <property name="cache" value="true"/> 
 	   <property name="fallbackToDynamicDestination" value="false"/> 
 	</bean> 
+	
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory"/> 
+		<property name="destinationResolver" ref="destinationResolver"/> 
+		<property name="defaultDestinationName" value="EM_SP_TRADE.Q"/> 
+		<property name="pubSubDomain" value="false"/> 
+	</bean>
+	
+	<bean id ="tardeProcessor" class = "ma.mota.jms.listner.processor.TradeProcessor"></bean>
+	
+	<jms:listener-container destination-resolver="destinationResolver" connection-factory="connectionFactory" concurrency="2">
+		<jms:listener destination="EM_SP_TRADE.Q" ref="tardeProcessor"/>
+	
+	</jms:listener-container>
 
 
 
